@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Galleyforge Manuscript Schema v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manuscript_id",
+    "title",
+    "authors",
+    "affiliations",
+    "sections"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.0$"
+    },
+    "manuscript_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "journal": {
+      "type": "string"
+    },
+    "article_type": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "doi": {
+      "type": "string"
+    },
+    "volume": {
+      "type": "string"
+    },
+    "issue": {
+      "type": "string"
+    },
+    "first_page": {
+      "type": "string"
+    },
+    "last_page": {
+      "type": "string"
+    },
+    "dates": {
+      "type": "object",
+      "properties": {
+        "received": {
+          "type": "string"
+        },
+        "accepted": {
+          "type": "string"
+        },
+        "published_online": {
+          "type": "string"
+        },
+        "published_print": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "urls": {
+      "type": "object",
+      "properties": {
+        "pdf": {
+          "type": "string"
+        },
+        "html": {
+          "type": "string"
+        },
+        "supplementary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "url"
+            ],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "given_name": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "orcid": {
+            "type": "string"
+          },
+          "affiliation_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "is_corresponding": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "affiliations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "index",
+          "text"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "corresponding": {
+      "type": "object",
+      "properties": {
+        "author_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "email": {
+          "type": "string"
+        },
+        "name_override": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "abstract": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "string"
+        },
+        "results": {
+          "type": "string"
+        },
+        "discussion": {
+          "type": "string"
+        },
+        "abbreviations": {
+          "type": "string"
+        },
+        "acknowledgements": {
+          "type": "string"
+        },
+        "funding": {
+          "type": "string"
+        },
+        "author_contributions": {
+          "type": "string"
+        },
+        "ai_disclosure": {
+          "type": "string"
+        },
+        "disclosure_statement": {
+          "type": "string"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ethics": {
+          "type": "string"
+        },
+        "data_availability": {
+          "type": "string"
+        },
+        "conclusion": {
+          "type": "string"
+        },
+        "declarations": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "figures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "legend": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "rows"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "xml_settings": {
+      "type": "object",
+      "properties": {
+        "pubmed": {
+          "type": "object",
+          "properties": {
+            "journal_abbrev": {
+              "type": "string"
+            },
+            "issn": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "crossref": {
+          "type": "object",
+          "properties": {
+            "depositor_name": {
+              "type": "string"
+            },
+            "depositor_email": {
+              "type": "string"
+            },
+            "doi_prefix": {
+              "type": "string"
+            },
+            "resource_base_url": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "front_matter": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

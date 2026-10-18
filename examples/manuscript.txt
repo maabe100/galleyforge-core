@@ -1,0 +1,26 @@
+Automated HTML generation for small scientific journals
+Jane Doe, John Smith
+
+## Abstract
+This is a short example manuscript used to demonstrate the Galleyforge Core engine.
+It shows how sections and figures can be rendered to HTML.
+
+## Introduction
+Many small journals still format manuscripts manually.
+This often leads to inconsistent layout and a lot of editorial workload.
+
+## Methods
+In this example, we keep the structure intentionally simple:
+plain text input, basic section headings and a small figure set.
+
+## Results
+The parser detects headings and splits the text into sections.
+The HTML renderer combines these sections with a minimal template.
+
+## Discussion
+Galleyforge Core is intended as a starting point that can be extended
+to support more complex inputs, XML export and journal-specific layouts.
+
+## References
+(1) Example reference one.
+(2) Example reference two.
